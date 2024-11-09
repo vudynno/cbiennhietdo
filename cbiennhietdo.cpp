@@ -26,15 +26,15 @@ void setup() {
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-    Serial.println("?ang k?t n?i ??n WiFi...");
+    Serial.println("dang ket noi den WiFi...");
   }
-  Serial.println("K?t n?i WiFi thành công");
+  Serial.println("Ket noi WiFi thanh cong");
 
   
   client.setServer(mqtt_server, 1883);
   
   if (!rtc.begin()) {
-    Serial.println("Không th? tìm th?y RTC");
+    Serial.println("Khong the tim thay RTC");
   }
 }
 
@@ -68,11 +68,11 @@ void loop() {
 
 void reconnect() {
   while (!client.connected()) {
-    Serial.print("?ang c? g?ng k?t n?i ??n MQTT...");
+    Serial.print("dang co gang ket noi den MQTT...");
     if (client.connect("ESP8266Client")) {
-      Serial.println("?ã k?t n?i");
+      Serial.println("da ket noi");
     } else {
-      Serial.print("L?i, mã l?i = ");
+      Serial.print("Loi, ma loi = ");
       Serial.print(client.state());
       delay(2000);
     }
