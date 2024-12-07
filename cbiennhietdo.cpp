@@ -9,8 +9,8 @@
 
 const char* ssid = "NTN";
 const char* password = "01490149";
-
-const char* mqtt_server = "47.129.242.217"; 
+const int mqtt_port = 1883;
+const char* mqtt_server = "47.128.147.172"; 
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -45,7 +45,7 @@ void loop() {
   client.loop();
   sensors.requestTemperatures();
   float temperature = sensors.getTempCByIndex(0);
-
+  Serial.println(temperature);
   DateTime now = rtc.now();
   String timeString = String(now.year(), DEC) + "-" + String(now.month(), DEC) + "-" + String(now.day(), DEC) + " " + 
                       String(now.hour(), DEC) + ":" + String(now.minute(), DEC) + ":" + String(now.second(), DEC);
